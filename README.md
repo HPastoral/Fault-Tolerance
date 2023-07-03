@@ -34,3 +34,12 @@ DHCP, a protocol used to automatically assign IP addresses to devices on a netwo
 Routing protocols, such as OSPF (Open Shortest Path First), were configured on the routers to enable efficient and dynamic routing of network traffic. These protocols allowed the routers to exchange information, compute optimal paths, and adapt to network changes in real-time. By employing fault-tolerant routing protocols, the network could quickly adapt to failures, reroute traffic, and maintain continuous connectivity.
 
 This project effectively showcased the significance of fault-tolerance in computer networks through the implementation of a robust network infrastructure using three Cisco routers. By configuring ACLs, subnets, VLANs, DHCP, and routing protocols, the network demonstrated enhanced security, optimized performance, and the ability to withstand failures. The project highlighted the critical role of fault-tolerance in ensuring uninterrupted communication and reliable network operation, reinforcing the importance of implementing resilient network architectures in various real-world scenarios.
+
+# Cisco Routers an Switches
+![Snag_111b6cd](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/cba326e7-014d-4e01-adf1-459ccf5e3e5f)
+
+# Configuration Time!!
+![Snag_111c0df](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/26051e9f-4729-4576-84af-5b0d30476120)
+
+
+
