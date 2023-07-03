@@ -83,7 +83,6 @@ Connect Router2’s interface G0/1 to Serverside Switch’s interface F2/0/1 wit
 **Serverside Switch to Linux Mint (Apache Web Server):** <br>
 Connect Serverside Switch’s interface F2/0/2 to the Web Server’s network card with an ethernet 
 cable.<br>
-
 Router3 to Clientside Switch:<br>
 Connect Router3’s interface G0/1 to Clientside Switch’s interface F6/0/48 with an ethernet 
 cable.<br>
@@ -93,7 +92,7 @@ cable.<br>
 Clientside Switch to Windows 10 Client:<br>
 Connect Clientside Switch’s interface F6/0/1 to the Windows 10’s network card with an ethernet 
 cable.<br>
-Router Configurations:<br>
+# Router Configurations:
 To configure the routers, Putty must be installed in the Windows 10 Computer and connect the 
 serial console cable to the Router’s console port. The following configuration must be programmed 
 to each router as specified or depending on the hardware interfaces as need.
