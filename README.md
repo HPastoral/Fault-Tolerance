@@ -24,7 +24,12 @@ The implementation of ACLs allowed for granular control over network traffic by 
 
 Subnetting, a technique that divides a larger network into smaller subnetworks, played a pivotal role in optimizing network performance and facilitating fault-tolerance. By subnetting the network, I created smaller and more manageable segments, enabling efficient resource allocation and reducing the risk of network congestion. Additionally, subnetting enhances fault-tolerance by isolating network issues within specific subnets, preventing them from affecting the entire network.
 
+![Snag_1050133](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/1f55f411-cb09-43f1-a59d-abafdd7f32c2)
+
+
 The implementation of VLANs further enhanced fault-tolerance by logically segmenting the network into virtual networks. By creating separate broadcast domains, VLANs provided increased network security, improved bandwidth utilization, and simplified network management. In the event of a failure or disruption within one VLAN, the impact on other VLANs would be minimized, ensuring uninterrupted communication and enhancing fault-tolerance.
+
+![Snag_106a619](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/a8ec132f-4293-4079-8c98-b7c8221b2c74)
 
 DHCP, a protocol used to automatically assign IP addresses to devices on a network, played a vital role in ensuring fault-tolerance and efficient network management. By configuring DHCP on the routers, devices could dynamically obtain IP addresses, eliminating manual IP address assignment and reducing the chances of conflicts. DHCP also facilitated fault-tolerance by allowing for the rapid reconfiguration and reallocation of IP addresses in the event of network changes or failures.
 
