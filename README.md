@@ -38,6 +38,26 @@ This project effectively showcased the significance of fault-tolerance in comput
 # Cisco Routers and Switches from Ebay
 ![Snag_111b6cd](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/cba326e7-014d-4e01-adf1-459ccf5e3e5f)
 
+Hardware and Software Requirements:
+
+- 3x Cisco 1921 Routers<br>
+- 2x Catalyst 3750 Series Switch<br>
+- 7x Ethernet cables<br>
+- 1x Serial console cable<br>
+- 1x Linux Mint 20 (Apache Web Server)<br>
+  - Installed Software:
+  - Apache Tomcat Webserver <br>
+- 1x Linux Mint 20 Client/Pentester <br>
+  - Installed Software:
+  - Nmap
+  - Wireshark
+  - Metasploit Framework
+  - Ettercap
+- 1x Windows 10 Client
+  - Putty
+
+
+
 # Configuration Time!!
 ![Snag_111c0df](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/26051e9f-4729-4576-84af-5b0d30476120)
 
