@@ -69,7 +69,7 @@ there is an understanding of how these network devices function and are configur
 changes can be made to these configurations to accommodate these differences.
 <br>
 
-# Network Cable Configurations:
+# Network Cable Configurations: (Work Inprogress..)
 **Router1 to Router2:** 
 <br>
 Connect Router1’s interface G0/0 to Router2’s interface G0/0 with an ethernet cable. 
