@@ -1,7 +1,5 @@
 # Fault-Tolerance
 
-Importance of Fault-Tolerance in Packet Switching
-
 Fault-tolerance in packet switching helps maintain reliable communication by providing mechanisms to handle and recover from failures. It ensures that packets are delivered accurately and efficiently, even in the presence of faults. By implementing fault-tolerant measures, packet-switched networks can prevent data loss, maintain optimal performance, and uphold the quality of service expected by users.
 
 Strategies for Achieving Fault-Tolerance in Packet Switching
