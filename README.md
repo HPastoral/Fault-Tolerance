@@ -69,7 +69,7 @@ there is an understanding of how these network devices function and are configur
 changes can be made to these configurations to accommodate these differences.
 <br>
 
-# Network Cable Configurations: (Work Inprogress..needs editing)
+# Network Cable Configurations:
 ### Router1 Configuration:
 
 #### Configure Hostname and Interfaces:
