@@ -70,28 +70,30 @@ changes can be made to these configurations to accommodate these differences.
 <br>
 
 # Network Cable Configurations: (Work Inprogress..needs editing)
-**Router1 to Router2:** 
-<br>
-Connect Router1’s interface G0/0 to Router2’s interface G0/0 with an ethernet cable. 
-<br>
-**Router1 to Router3:** <br>
-Connect Router1’s interface G0/1 to Router3’s interface G0/1 with an ethernet cable.<br>
-**Router2 to Router3:** <br>
-Connect Router2’s interface S0/0/1:0 to Router3’s interface S0/0/1:0 with an ethernet cable.<br>
-**Router2 to Serverside Switch:** <br>
-Connect Router2’s interface G0/1 to Serverside Switch’s interface F2/0/1 with an ethernet cable.<br>
-**Serverside Switch to Linux Mint (Apache Web Server):** <br>
-Connect Serverside Switch’s interface F2/0/2 to the Web Server’s network card with an ethernet 
-cable.<br>
-Router3 to Clientside Switch:<br>
-Connect Router3’s interface G0/1 to Clientside Switch’s interface F6/0/48 with an ethernet 
-cable.<br>
-Clientside Switch to Linux Mint Client/Pentester:
-Connect Clientside Switch’s interface F6/0/2 to the Linux Mint’s network card with an ethernet 
-cable.<br>
-Clientside Switch to Windows 10 Client:<br>
-Connect Clientside Switch’s interface F6/0/1 to the Windows 10’s network card with an ethernet 
-cable.<br>
+**Router1 to Router2:**
+Connect Router1’s interface G0/0 to Router2’s interface G0/0 with an Ethernet cable.
+
+**Router1 to Router3:**
+Connect Router1’s interface G0/1 to Router3’s interface G0/1 with an Ethernet cable.
+
+**Router2 to Router3:**
+Connect Router2’s interface S0/0/1:0 to Router3’s interface S0/0/1:0 with an Ethernet cable.
+
+**Router2 to Serverside Switch:**
+Connect Router2’s interface G0/1 to Serverside Switch’s interface F2/0/1 with an Ethernet cable.
+
+**Serverside Switch to Linux Mint (Apache Web Server):**
+Connect Serverside Switch’s interface F2/0/2 to the Web Server’s network card with an Ethernet cable.
+
+**Router3 to Clientside Switch:**
+Connect Router3’s interface G0/1 to Clientside Switch’s interface F6/0/48 with an Ethernet cable.
+
+**Clientside Switch to Linux Mint Client/Pentester:**
+Connect Clientside Switch’s interface F6/0/2 to the Linux Mint’s network card with an Ethernet cable.
+
+**Clientside Switch to Windows 10 Client:**
+Connect Clientside Switch’s interface F6/0/1 to the Windows 10’s network card with an Ethernet cable.
+
 # Router Configurations:
 To configure the routers, Putty must be installed in the Windows 10 Computer and connect the 
 serial console cable to the Router’s console port. The following configuration must be programmed 
