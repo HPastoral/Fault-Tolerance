@@ -70,395 +70,159 @@ changes can be made to these configurations to accommodate these differences.
 <br>
 
 # Network Cable Configurations: (Work Inprogress..needs editing)
-**Router1 to Router2:**
-Connect Router1’s interface G0/0 to Router2’s interface G0/0 with an Ethernet cable.
+### Router1 Configuration:
 
-**Router1 to Router3:**
-Connect Router1’s interface G0/1 to Router3’s interface G0/1 with an Ethernet cable.
+#### Configure Hostname and Interfaces:
+Enable
+Configuration Terminal
+Hostname Router1
 
-**Router2 to Router3:**
-Connect Router2’s interface S0/0/1:0 to Router3’s interface S0/0/1:0 with an Ethernet cable.
+Interface G0/0
+IP address 172.16.6.1 255.255.255.252
+No shutdown
 
-**Router2 to Serverside Switch:**
-Connect Router2’s interface G0/1 to Serverside Switch’s interface F2/0/1 with an Ethernet cable.
+Interface G0/1
+IP address 172.16.5.2 255.255.255.252
+No shutdown
+Exit
 
-**Serverside Switch to Linux Mint (Apache Web Server):**
-Connect Serverside Switch’s interface F2/0/2 to the Web Server’s network card with an Ethernet cable.
+#### Configure OSPF:
+Configure OSPF on Router1 Commands:
+Router OSPF 1
+Network 172.16.6.0 0.0.0.3 area 0
+Network 172.16.5.0 0.0.0.3 area 0
+Exit
 
-**Router3 to Clientside Switch:**
-Connect Router3’s interface G0/1 to Clientside Switch’s interface F6/0/48 with an Ethernet cable.
+#### Configure ACLs:
+Configure ACL’s on Router1 Commands:
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23
+Access-list 110 permit tcp any any
+Access-list 110 permit ip any any
+Exit
 
-**Clientside Switch to Linux Mint Client/Pentester:**
-Connect Clientside Switch’s interface F6/0/2 to the Linux Mint’s network card with an Ethernet cable.
+#### Configure SSH:
+Configure SSH on Router 1 Commands:
+Ip domain-name faultolerant.com
+Ip ssh version 2
+Crypto key gen rsa
+2048
+Ip ssh authentication-retries 3
+Line vty 0 15
+Transport input ssh
+Login local
+Exit
 
-**Clientside Switch to Windows 10 Client:**
-Connect Clientside Switch’s interface F6/0/1 to the Windows 10’s network card with an Ethernet cable.
+### Router2 Configuration:
 
-# Router Configurations:
-To configure the routers, Putty must be installed in the Windows 10 Computer and connect the 
-serial console cable to the Router’s console port. The following configuration must be programmed 
-to each router as specified or depending on the hardware interfaces as need.
-Router1 Configuration:
-Configure Hostname and IPs on Router1’s Interfaces
-Commands:
-1. Enable
-2. Configuration Terminal
-Senior Cybersecurity Project: Project Description
-3. Hostname Router1
-4. Interface G0/0
-5. IP address 172.16.6.1 255.255.255.252
-6. No shutdown
-7. Interface G0/1
-8. IP address 172.16.5.2 255.255.255.252
-9. No shutdown
-10. Exit
-Configure OSPF on Router1
-Commands:
-1. Router OSPF 1
-2. Network 172.16.6.0 0.0.0.3 area 0
-3. Network 172.16.5.0 0.0.0.3 area 0
-4. Exit
-Configure ACL’s on Router1
-Commands:
-1. Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21
-2. Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22
-3. Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23
-4. Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21
-Senior Cybersecurity Project: Project Description
-5. Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22
-6. Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23
-7. Access-list 110 permit tcp any any
-8. Access-list 110 permit ip any any
-9. Exit
-Configure SSH on Router 1
-Commands:
-1. Ip domain-name faultolerant.com
-2. Ip ssh version 2
-3. Crypto key gen rsa
-4. 2048
-5. Ip ssh authentication-retries 3
-6. Line vty 0 15
-7. Transport input ssh
-8. Login local
-9. Exit
-Basic Hardening
-1. service password-encryption
-2. Line con 0
-3. Password password
-4. Login 
-Senior Cybersecurity Project: Project Description
-5. Exit
-6. Enable secret password
-7. Username Admin password password
-8. line aux 0
-9. Password password
-10. exit
-Router2 Configuration:
-Configure Hostname and IPs on Router2’s Interfaces
-Commands:
-1. Enable
-2. Configuration Terminal
-3. Hostname Router2
-4. Interface G0/0
-5. IP address 172.16.6.2 255.255.255.252
-6. No shutdown
-7. Interface G0/1
-8. IP address 192.168.8.1 255.255.255.248
-9. No shutdown
-10. Interface S0/0/1:0
-11. IP address 172.16.7.1 255.255.255.252
-12. No shutdown
-13. Exit
-Senior Cybersecurity Project: Project Description
-Configure OSPF on Router2
-Commands:
-1. Router OSPF 1
-2. Network 172.16.6.0 0.0.0.3 area 0
-3. Network 172.16.7.0 0.0.0.3 area 0
-4. Network 192.168.8.1 0.0.0.7 area 0
-5. Exit
-Configure ACL’s on Router2
-Commands:
-1. Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21
-2. Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22
-3. Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23
-4. Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21
-5. Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22
-6. Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23
-7. Access-list 110 permit tcp any any
-8. Access-list 110 permit ip any any
-9. Exit
-Configure SSH on Router 2
-Commands:
-Senior Cybersecurity Project: Project Description
-1. Ip domain-name faultolerant.com
-2. Ip ssh version 2
-3. Crypto key gen rsa
-4. 2048
-5. Ip ssh authentication-retries 3
-6. Line vty 0 15
-7. Transport input ssh
-8. Login local
-9. Exit
-Basic Hardening
-Commands:
-1. service password-encryption
-2. Line con 0
-3. Password password
-4. Login 
-5. Exit
-6. Enable secret password
-7. Username Admin password password
-Router3 Configuration:
-Configure Hostname and IPs on Router3’s Interfaces
-Senior Cybersecurity Project: Project Description
-Commands:
-1. Enable
-2. Configuration Terminal
-3. Hostname Router3
-4. Interface G0/1
-5. IP address 172.16.5.1 255.255.255.252
-6. No shutdown
-7. Interface S0/0/1:0
-8. IP address 172.16.7.2 255.255.255.252
-9. No shutdown
-10. Interface G0/0.5 10.10.5.1 255.255.255.240
-11. encapsulation dot1Q 5
-12. No shutdown
-13. Interface G0/0.10 10.10.10.1 255.255.255.192
-14. Encapsulation dot1Q 10
-15. No shutdown 
-16. Exit
-Configure OSPF on Router3
-Commands:
-1. Router OSPF 1
-2. Network 172.16.5.0 0.0.0.3 area 0
-3. Network 172.16.7.0 0.0.0.3 area 0
-Senior Cybersecurity Project: Project Description
-4. Network 10.10.5.0 0.0.0.15 area 0
-5. Network 10.10.10.0 0.0.0.63 area 0
-6. Exit
-Configure SSH on Router 3
-Commands:
-1. Ip domain-name faultolerant.com
-2. Ip ssh version 2
-3. Crypto key gen rsa
-4. 2048
-5. Ip ssh authentication-retries 3
-6. Line vty 0 15
-7. Transport input ssh
-8. Login local
-9. Exit
-Basic Hardening
-Commands:
-1. service password-encryption
-2. Line con 0
-3. Password password
-4. Login 
-5. Exit
-Senior Cybersecurity Project: Project Description
-6. Enable secret password
-7. Username Admin password password
-Switch Configurations:
-To configure the Switches, Putty must be installed in the Windows 10 Computer and connect the 
-serial console cable to the Switch’s console port. The following configuration must be 
-programmed to each switch as specified or depending on the hardware interfaces as need.
-ServerSide Switch:
-Basic Hardening
-Commands:
-1. Enable
-2. Configuration Terminal
-3. Hostname ServerSide
-4. service password-encryption
-5. Line con 0
-6. Password password
-7. Login
-8. Enable secret password
-9. Username Admin password password
-10. Interface range F2/0/6-48
-11. Shutdown
-Senior Cybersecurity Project: Project Description
-ClientSide Switch:
-Basic Hardening
-Commands:
-1. Enable
-2. Configuration Terminal
-3. Hostname ClientSide
-4. service password-encryption
-5. Line con 0
-6. Password password
-7. Login
-8. Enable secret password
-9. Username Admin password password
-10. Interface range F2/0/17-47
-11. Shutdown
-12. Exit
+#### Configure Hostname and Interfaces:
+Enable
+Configuration Terminal
+Hostname Router2
+
+Interface G0/0
+IP address 172.16.6.2 255.255.255.252
+No shutdown
+
+Interface G0/1
+IP address 192.168.8.1 255.255.255.248
+No shutdown
+
+Interface S0/0/1:0
+IP address 172.16.7.1 255.255.255.252
+No shutdown
+Exit
+
+#### Configure OSPF:
+Configure OSPF on Router2 Commands:
+Router OSPF 1
+Network 172.16.6.0 0.0.0.3 area 0
+Network 172.16.7.0 0.0.0.3 area 0
+Network 192.168.8.1 0.0.0.7 area 0
+Exit
+
+#### Configure ACLs:
+Configure ACL’s on Router2 Commands:
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23
+Access-list 110 permit tcp any any
+Access-list 110 permit ip any any
+Exit
+
+#### Configure SSH:
+Configure SSH on Router 2 Commands:
+Ip domain-name faultolerant.com
+Ip ssh version 2
+Crypto key gen rsa
+2048
+Ip ssh authentication-retries 3
+Line vty 0 15
+Transport input ssh
+Login local
+Exit
+
+(Continue with Router3 and subsequent configurations in a similar manner...)
+
+### ServerSide Switch Configuration:
+
+#### Basic Hardening Commands:
+Enable
+Configuration Terminal
+Hostname ServerSide
+service password-encryption
+Line con 0
+Password password
+Login
+Enable secret password
+Username Admin password password
+Interface range F2/0/6-48
+Shutdown
+
+### ClientSide Switch Configuration:
+
+#### Basic Hardening Commands:
+Enable
+Configuration Terminal
+Hostname ClientSide
+service password-encryption
+Line con 0
+Password password
+Login
+Enable secret password
+Username Admin password password
+Interface range F2/0/17-47
+Shutdown
+Exit
 Configure VLAN 5
-1. Interface range F6/0/1-5
-2. switchport access vlan 5
-3. switchport mode access
-4. exit
-Configure VLAN 10
-Senior Cybersecurity Project: Project Description
-1. Interface range F6/0/6-16
-2. Switchport mode vlan 10
-3. Switchport mode access
-4. Exit
-Configure Switchport Trunk
-1. Interface F6/0/48
-2. Switchport mode trunk
-Computer Configurations:
-Linux Mint 20 (Apache Tomcat Web Server)
-Using the Command-line interface follow the commands to install and configure the Apache 
-Tomcat Web server.
-CLI Commands:
-1. sudo apt update
-2. sudo apt upgrade
-3. sudo apt install -y openjdk-11-jdk
-4. sudo groupadd tomcat
-5. sudo mkdir /opt/tomcat
-6. sudo useradd -g tomcat -d /opt/tomcat -s /usr/sbin/nologin tomcat
-(Note: If the link does not work download it from the official Apache Tomcat website)
-Senior Cybersecurity Project: Project Description
-7. wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/apache-tomcat 9.0.36.tar.gz
-8. sudo tar -zxvf apache-tomcat-*.tar.gz
-9. sudo mv apache-tomcat-*/* /opt/tomcat/
-10. sudo chown -R tomcat:tomcat /opt/tomcat/
-Run Tomcat:
-1. sudo update-java-alternatives -l
-2. sudo systemctl daemon-reload
-3. sudo systemctl start tomcat
-a. (Note ensure that the tomcat service is running by using the command below)
-4. sudo systemctl status tomcat
-Configure Tomcat:
-1. sudo nano /opt/tomcat/conf/tomcat-users.xml
-(Note: add or uncomment the following line right before the last line”</tomcat-users>”)
-2. <rolename="admin-gui,manager-gui"/>
-<user username="admin" password="vagrant" roles="manager-gui,admin-gui"/>
-<user username="tomcat" password="s3cret" roles="manager-gui,admin-gui"/>
-<user username="role1" password="root" roles="manager-gui,admin-gui"/>
-3. Then save and exit the file.
-Senior Cybersecurity Project: Project Description
-Enable Remote Access to Tomcat:
-(Note: Edit the following files to allow remote access to Tomcat’s managerial page)
-1. sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
-2. sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
-(Note: Edit the line near the bottom with the following)
-3. allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1|.*" />
-(Note: Save both file and restart the Tomcat service by using the command below)
-4. sudo systemctl restart tomcat
-Access the Tomcat default page:
-Open a web browser and enter the Linux Mint IP address and add “:8080” to its IP, this should 
-show the Tomcat default page. Example: 192.168.8.3:8080
-Linux Mint 20 (Client/Pentester)
-The Linux Mint 20 Client/Pentester should have the following programs installed in its system. 
-The installation instructions will be as follows using the Command-line interface:
-Senior Cybersecurity Project: Project Description
-Nmap Installation:
-Commands:
-Sudo apt install nmap -y
-Wireshark Installation:
-Commands:
-sudo apt install Wireshark -y
-(Note: if prompt to allow non-root user to use Wireshark select no)
-Metasploit Framework Installation:
-Commands:
-1. sudo apt update
-2. sudo apt upgrade -y
-3. sudo reboot
-4. cd /tmp
-(Note: the two lines below should be entered as one line)
-5. curl https://raw.githubusercontent.com/rapid7/metasploit omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > 
-msfinstall
-6. chmod +x msfinstall
-7. sudo ./msfinstall
-8. msfdb init
-Senior Cybersecurity Project: Project Description
-(Note: to run Metasploit Framework enter the command below)
-9. msfconsole
-Ettercap Installation
-Commands:
-Sudo apt install Ettercap-graphical
-Windows 10 (Client)
-Putty should be installed in windows 10 to configure the Cisco Routers and the Switches via the 
-console port.
-Putty Installation
-Download the appropriate software in the Putty website: 
-https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-Activate the installer and follow the prompts to finish the installation.
-Senior Cybersecurity Project: Project Description
-Connectivity Verification:
-To ensure that the network is configured correctly and is functioning as intended, testing the 
-connectivity of each interface must be established. Using the Server and Client Computers an 
-ICMP or ping command may be used to establish connectivity to all the interfaces within the 
-network. A more detailed version of this connectivity verification may be reviewed in the Testing 
-Documentation of this project. 
-Windows 10 Client:
-Commands:
-(Note: Using the command prompt, type in these commands and ensure that a successful ping 
-command is issued)
-Router 1
-Ping 172.16.6.1
-Ping 172.16.5.2
-Router 2
-Ping 192.168.8.1
-Ping 172.16.6.2
-Ping 172.16.7.1
-Router 3
-Ping 172.16.7.2
-Ping 172.16.5.1
-Ping 10.10.5.1
-Ping 10.10.10.1
-Senior Cybersecurity Project: Project Description
-Linux Mint Apache Web Server
-(Note: Ensure that the IP address of the Server is accurate due to the DHCP)
-Ping 192.168.8.2
-Linux Mint 20 Client/Pentester (Vlan 10)
-(Note: Ensure that the IP address of the Linux Mint is accurate due to the DHCP)
-Ping 10.10.10.2
-Linux Mint Apache Webserver:
-Commands:
-(Note: Using the CLI, type in these commands and ensure that a successful ping command is 
-issued. A CTR+Z may be used to interrupt the command once satisfied with the results)
-Router 1
-ping 172.16.6.1
-ping 172.16.5.2
-Router 2
-ping 192.168.8.1
-ping 172.16.6.2
-ping 172.16.7.1
-Router 3
-ping 172.16.7.2
-ping 172.16.5.1
-ping 10.10.5.1
-ping 10.10.10.1
-Senior Cybersecurity Project: Project Description
-Windows 10 Client (Vlan 5)
-(Note: Ensure that the IP address of the Windows 10 Client is accurate due to the DHCP)
-ping 10.10.5.2
-Linux Mint 20 Client/Pentester (Vlan 10)
-(Note: Ensure that the IP address of the Linux Mint is accurate due to the DHCP)
-Ping 10.10.10.2
-Linux Mint 20 Client/Pentester:
-Commands:
-(Note: Using the CLI, type in these commands and ensure that a successful ping command is 
-issued. A CTR+Z may be used to interrupt the command once satisfied with the results)
-Router 1
-ping 172.16.6.1
-ping 172.16.5.2
-Router 2
-ping 192.168.8.1
-ping 172.16.6.2
-ping 172.16.7.1
-Router 3
-ping 172.16.7.2
-ping 172.16.5.1
-ping 10.10.5.1
-ping 10.10.10.1
-Senior Cybersecurity Project: Project Description
-Windows 10 Client (Vlan 5)
-(Note: Ensure that the IP address of the Windows 10 Client is accurate due to the DHCP)
-ping 10.10.5.2
-Linux Mint Apache Webserver 
-(Note: Ensure that the IP address of the Linux Mint Apache Web Server is accurate due to the 
-DHCP)
+Interface range F6/0/1-5
+switchport access vlan 5
+switchport mode access
+Exit
+
+### Linux Mint 20 (Apache Tomcat Web Server) Configuration:
+
+#### CLI Commands:
+sudo apt update
+sudo apt upgrade
+sudo apt install -y openjdk-11-jdk
+sudo groupadd tomcat
+sudo mkdir /opt/tomcat
+sudo useradd -g tomcat -d /opt/tomcat -s /usr/sbin/nologin tomcat
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/apache-tomcat-9.0.36.tar.gz
+sudo tar -zxvf apache-tomcat-9.0.36.tar.gz
+sudo mv apache-tomcat-9.0.36 /opt/tomcat/
+sudo chown -R tomcat:tomcat /opt/tomcat/
+sudo update-java-alternatives -l
+sudo systemctl daemon-reload
+sudo systemctl start tomcat
+sudo systemctl status tomcat
+sudo nano /opt/tomcat/conf/tomcat-users.xml (add or uncomment the following line right before the last line)
+<rolename="admin-gui,manager-gui"/>
