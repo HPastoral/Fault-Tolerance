@@ -68,8 +68,6 @@ fixed hardware configurations such as interface names within a router or a switc
 there is an understanding of how these network devices function and are configured, some 
 changes can be made to these configurations to accommodate these differences.
 <br>
-
-# Network Cable Configurations:
 ### Router1 Configuration:
 
 #### Configure Hostname and Interfaces:
