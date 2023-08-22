@@ -207,6 +207,8 @@ Exit <br>
 
 ### Linux Mint 20 (Apache Tomcat Web Server) Configuration:
 
+![tomcat](https://github.com/HPastoral/Fault-Tolerance/assets/135756003/cf8c44d9-4969-4efe-bd9c-1adf405d8ecf)
+
 #### CLI Commands:
 sudo apt update <br>
 sudo apt upgrade <br>
