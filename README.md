@@ -87,142 +87,142 @@ No shutdown
 Exit
 
 #### Configure OSPF:
-Configure OSPF on Router1 Commands:
-Router OSPF 1
-Network 172.16.6.0 0.0.0.3 area 0
-Network 172.16.5.0 0.0.0.3 area 0
-Exit
+Configure OSPF on Router1 Commands: <br>
+Router OSPF 1 <br>
+Network 172.16.6.0 0.0.0.3 area 0 <br>
+Network 172.16.5.0 0.0.0.3 area 0 <br>
+Exit <br>
 
 #### Configure ACLs:
-Configure ACL’s on Router1 Commands:
-Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21
-Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22
-Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23
-Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21
-Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22
-Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23
-Access-list 110 permit tcp any any
-Access-list 110 permit ip any any
-Exit
+Configure ACL’s on Router1 Commands:<br>
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21 <br>
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22 <br>
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23 <br>
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21 <br>
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22 <br>
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23 <br>
+Access-list 110 permit tcp any any <br>
+Access-list 110 permit ip any any <br>
+Exit <br>
 
 #### Configure SSH:
-Configure SSH on Router 1 Commands:
-Ip domain-name faultolerant.com
-Ip ssh version 2
-Crypto key gen rsa
-2048
-Ip ssh authentication-retries 3
-Line vty 0 15
-Transport input ssh
-Login local
-Exit
+Configure SSH on Router 1 Commands: <br>
+Ip domain-name faultolerant.com <br>
+Ip ssh version 2 <br>
+Crypto key gen rsa <br>
+2048 <br>
+Ip ssh authentication-retries 3 <br>
+Line vty 0 15 <br>
+Transport input ssh <br>
+Login local <br>
+Exit <br>
 
 ### Router2 Configuration:
 
 #### Configure Hostname and Interfaces:
-Enable
-Configuration Terminal
-Hostname Router2
+Enable <br>
+Configuration Terminal <br>
+Hostname Router2 <br>
 
-Interface G0/0
-IP address 172.16.6.2 255.255.255.252
-No shutdown
+Interface G0/0 <br>
+IP address 172.16.6.2 255.255.255.252 <br>
+No shutdown <br>
 
-Interface G0/1
-IP address 192.168.8.1 255.255.255.248
-No shutdown
+Interface G0/1 <br>
+IP address 192.168.8.1 255.255.255.248 <br>
+No shutdown <br>
 
-Interface S0/0/1:0
-IP address 172.16.7.1 255.255.255.252
-No shutdown
-Exit
+Interface S0/0/1:0 <br>
+IP address 172.16.7.1 255.255.255.252 <br>
+No shutdown <br>
+Exit <br>
 
 #### Configure OSPF:
-Configure OSPF on Router2 Commands:
-Router OSPF 1
-Network 172.16.6.0 0.0.0.3 area 0
-Network 172.16.7.0 0.0.0.3 area 0
-Network 192.168.8.1 0.0.0.7 area 0
-Exit
+Configure OSPF on Router2 Commands: <br>
+Router OSPF 1 <br>
+Network 172.16.6.0 0.0.0.3 area 0 <br>
+Network 172.16.7.0 0.0.0.3 area 0 <br>
+Network 192.168.8.1 0.0.0.7 area 0 <br>
+Exit <br>
 
 #### Configure ACLs:
-Configure ACL’s on Router2 Commands:
-Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21
-Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22
-Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23
-Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21
-Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22
-Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23
-Access-list 110 permit tcp any any
-Access-list 110 permit ip any any
-Exit
+Configure ACL’s on Router2 Commands: <br>
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 21 <br>
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 22 <br>
+Access-list 110 deny tcp 10.10.5.0 0.0.0.255 any 23 <br>
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 21 <br>
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 22 <br>
+Access-list 110 deny tcp 10.10.10.0 0.0.0.255 any 23 <br>
+Access-list 110 permit tcp any any <br>
+Access-list 110 permit ip any any <br>
+Exit <br>
 
 #### Configure SSH:
-Configure SSH on Router 2 Commands:
-Ip domain-name faultolerant.com
-Ip ssh version 2
-Crypto key gen rsa
-2048
-Ip ssh authentication-retries 3
-Line vty 0 15
-Transport input ssh
-Login local
-Exit
+Configure SSH on Router 2 Commands: <br>
+Ip domain-name faultolerant.com <br>
+Ip ssh version 2 <br>
+Crypto key gen rsa <br>
+2048 <br>
+Ip ssh authentication-retries 3 <br>
+Line vty 0 15 <br>
+Transport input ssh <br>
+Login local <br>
+Exit <br>
 
 (Continue with Router3 and subsequent configurations in a similar manner...)
 
 ### ServerSide Switch Configuration:
 
 #### Basic Hardening Commands:
-Enable
-Configuration Terminal
-Hostname ServerSide
-service password-encryption
-Line con 0
-Password password
-Login
-Enable secret password
-Username Admin password password
-Interface range F2/0/6-48
-Shutdown
+Enable <br>
+Configuration Terminal <br>
+Hostname ServerSide <br>
+service password-encryption <br>
+Line con 0 <br>
+Password password <br>
+Login <br>
+Enable secret password <br>
+Username Admin password password <br>
+Interface range F2/0/6-48 <br>
+Shutdown <br>
 
 ### ClientSide Switch Configuration:
 
 #### Basic Hardening Commands:
-Enable
-Configuration Terminal
-Hostname ClientSide
-service password-encryption
-Line con 0
-Password password
-Login
-Enable secret password
-Username Admin password password
-Interface range F2/0/17-47
-Shutdown
-Exit
-Configure VLAN 5
-Interface range F6/0/1-5
-switchport access vlan 5
-switchport mode access
-Exit
+Enable <br>
+Configuration Terminal <br>
+Hostname ClientSide <br>
+service password-encryption <br>
+Line con 0 <br>
+Password password <br>
+Login <br>
+Enable secret password <br>
+Username Admin password password <br>
+Interface range F2/0/17-47 <br>
+Shutdown <br>
+Exit <br>
+Configure VLAN 5 <br>
+Interface range F6/0/1-5 <br>
+switchport access vlan 5 <br>
+switchport mode access <br>
+Exit <br>
 
 ### Linux Mint 20 (Apache Tomcat Web Server) Configuration:
 
 #### CLI Commands:
-sudo apt update
-sudo apt upgrade
-sudo apt install -y openjdk-11-jdk
-sudo groupadd tomcat
-sudo mkdir /opt/tomcat
-sudo useradd -g tomcat -d /opt/tomcat -s /usr/sbin/nologin tomcat
-wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/apache-tomcat-9.0.36.tar.gz
-sudo tar -zxvf apache-tomcat-9.0.36.tar.gz
-sudo mv apache-tomcat-9.0.36 /opt/tomcat/
-sudo chown -R tomcat:tomcat /opt/tomcat/
-sudo update-java-alternatives -l
-sudo systemctl daemon-reload
-sudo systemctl start tomcat
-sudo systemctl status tomcat
-sudo nano /opt/tomcat/conf/tomcat-users.xml (add or uncomment the following line right before the last line)
-<rolename="admin-gui,manager-gui"/>
+sudo apt update <br>
+sudo apt upgrade <br>
+sudo apt install -y openjdk-11-jdk <br>
+sudo groupadd tomcat <br>
+sudo mkdir /opt/tomcat <br>
+sudo useradd -g tomcat -d /opt/tomcat -s /usr/sbin/nologin tomcat <br>
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/apache-tomcat-9.0.36.tar.gz <br>
+sudo tar -zxvf apache-tomcat-9.0.36.tar.gz <br>
+sudo mv apache-tomcat-9.0.36 /opt/tomcat/ <br>
+sudo chown -R tomcat:tomcat /opt/tomcat/ <br>
+sudo update-java-alternatives -l <br>
+sudo systemctl daemon-reload <br>
+sudo systemctl start tomcat <br>
+sudo systemctl status tomcat <br>
+sudo nano /opt/tomcat/conf/tomcat-users.xml (add or uncomment the following line right before the last line) <br>
+<rolename="admin-gui,manager-gui"/> <br>
